@@ -1,40 +1,53 @@
 <template>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">EL-Gibbor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<div class="container">
+  <b-navbar toggleable="lg"   >
+    <nuxtLink to="/" class="navbar-brand text-color ">EL-Gibbor</nuxtLink>
+
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <nuxtLink to="/" class="navlink text-color">Home</nuxtLink>
+        
+         <b-nav-item-dropdown text="Classes" right class="text-color">
+          <b-dropdown-item href="#">Pre Nursery</b-dropdown-item>
+          <b-dropdown-item href="#">Nursery 1</b-dropdown-item>
+          <b-dropdown-item href="#">Nursery 2</b-dropdown-item>
+          <b-dropdown-item href="#">Transition</b-dropdown-item>
+          <b-dropdown-item href="#">Primary 1</b-dropdown-item>
+          <b-dropdown-item href="#">Primary 2</b-dropdown-item>
+          <b-dropdown-item href="#">Primary 3</b-dropdown-item>
+          <b-dropdown-item href="#">Primary 4</b-dropdown-item>
+          <b-dropdown-item href="#">Primary 5</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+
+
+        <b-navbar-nav class="m-auto text-center">
+        <b-nav-form>
+          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+        </b-nav-form>
+        </b-navbar-nav>
+      
+
+      <b-navbar-nav class="ml-auto">
+       <nuxtLink to="/register-student" class="navlink text-color">
+          Add Student
+       </nuxtLink>
+        <b-nav-item-dropdown right class="text-color">
+          <!-- Using 'button-content' slot -->
+          <template #button-content>
+            <em>User</em>
+          </template>
+          <b-dropdown-item href="#">Profile</b-dropdown-item>
+          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</div>
 </template>
 
 <script>
@@ -42,4 +55,29 @@ export default {
     
 }
 </script>
-            
+
+
+<style scoped>
+.navlink {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.text-color {
+  color: rgb(18, 18, 133);
+
+}
+
+.navbar-brand {
+  font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(18, 18, 133);
+
+}
+</style>
