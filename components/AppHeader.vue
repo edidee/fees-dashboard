@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container-fluid">
   <b-navbar toggleable="lg"   >
     <nuxtLink to="/" class="navbar-brand text-color ">EL-Gibbor</nuxtLink>
 

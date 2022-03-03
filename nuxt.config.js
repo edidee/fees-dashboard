@@ -9,6 +9,17 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        
+        href: "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js",
+        body: true,
+      },
+      {
+        href: "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js",
+        body: true,
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
