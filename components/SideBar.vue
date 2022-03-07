@@ -1,12 +1,10 @@
 <template>
     <div class="sidebar text-center pt-4">
-        <nuxtLink to="/" class="m-5">
-      
-        Home</nuxtLink>
+        <nuxtLink to="/" class="m-5"> Home</nuxtLink>
         <ion-icon name="home"></ion-icon>
-        <nuxtLink to="/debtors" class="m-4">Debtors</nuxtLink>
-        <nuxtLink to="/Cleared" class="m-4">Cleared</nuxtLink>
-        <nuxtLink to="/" class="m-4">Cleared</nuxtLink>
+        <nuxtLink to="/debtors" class="m-5">Debtors</nuxtLink>
+        <nuxtLink to="/Cleared" class="m-5">Cleared</nuxtLink>
+        <nuxtLink to="/" class="m-5">Cleared</nuxtLink>
 
 
     </div>
