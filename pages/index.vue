@@ -1,5 +1,8 @@
 <template>
-    <JSCharting :options="chartOptions" class="columnChart"></JSCharting>
+<div>
+
+    <!-- <JSCharting :options="chartOptions" class="columnChart"></JSCharting> -->
+</div>
 </template>
 
 <script>

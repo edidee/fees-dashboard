@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <h2 class="text-center">Enroll New Student</h2>
-    <b-form-group inline @submit.prevent="submitForm">
+    <form class="form-group" inline @submit.prevent="submitForm">
       <label for="surname">Surname: </label>
       <b-form-input
         id="surname"
@@ -57,60 +57,62 @@
         ></b-form-select>
       </div>
       <b-button type="submit" variant="primary" class="mt-3">Submit</b-button>
-    </b-form-group>
+    </form>
   </div>
 </template>
 
 <script>
+  import axios from 'axios';
 export default {
   data() {
     return {
       firstname: '',
       surname: '',
       othername: '',
-      amountPaid: 0,
+      amountPaid: null,
       selectClass: null,
       options: [
         { value: null, text: "Please select a class" },
-        { value: "a", text: "Pre Nursery" },
-        { value: "b", text: "Nursery 1" },
-        { value: "c", text: "Nursery 2" },
-        { value: "d", text: "Transition" },
-        { value: "e", text: "Primary 1" },
-        { value: "f", text: "Primary 2" },
-        { value: "g", text: "Primary 3" },
-        { value: "h", text: "Primary 4" },
-        { value: "i", text: "Primary 5" },
+        { value: "pre nursery", text: "Pre Nursery" },
+        { value: "Nursery 1", text: "Nursery 1" },
+        { value: "Nursery 2", text: "Nursery 2" },
+        { value: "Transition", text: "Transition" },
+        { value: "Primary 1", text: "Primary 1" },
+        { value: "Primary 2", text: "Primary 2" },
+        { value: "Primary 3", text: "Primary 3" },
+        { value: "Primary 4", text: "Primary 4" },
+        { value: "Primary 5", text: "Primary 5" },
       ],
 
       paymentStatus: null,
       array: [
         { value: null, text: "Select payment status" },
-        { value: "a", text: "Cleared" },
-        { value: "b", text: "Part payment" },
+        { value: "cleared", text: "Cleared" },
+        { value: "not cleared", text: "Part payment" },
       ],
     };
   },
-  method: {
+  methods: {
     submitForm(){
-      axios.post('https://el-gibbor-dashboard-default-rtdb.europe-west1.firebasedatabase.app/student.json',{
-        hearder: {
-          'Content-Type': 'application/json',
+      fetch('https://student-dashboard-8b46f-default-rtdb.firebaseio.com/students.json',{
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
         },
         body: JSON.stringify({
           firstname: this.firstname,
           surname: this.surname,
           othername: this.othername,
           amount: this.amountPaid,
-          class: this.selectedClass,
+          class: this.selectClass,
           status: this.paymentStatus
         })
       });
 
-       this.firstname= '',
+      this.firstname= '',
       this.surname= '',
       this.othername= '',
-      this.amountPaid= 0,
+      this.amountPaid= null,
       this.selectClass = null,
       this.paymentStatus= null
 
